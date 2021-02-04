@@ -120,12 +120,12 @@ Role Structure
 # Example Playbook:
 ```yaml
 #
-# Role to change vCenter Server certificates
+# How to reuse vcsa roles
 # Author: Julian Wendland
 #
 ---
 
-- name: Change vCenter Certificates
+- name: reuse vcsa roles 
   hosts: localhost
   connection: local
 
@@ -133,7 +133,7 @@ Role Structure
     - /home/jw/github/Ansible/roles/vcsa/roles/vcsa.general/vault/secrets.yml
 
   roles:
-    - roles/vcsa.general
+    - roles/vcsa.general # Login 
     - roles/vcsa.vm.snapshot
     - roles/vcsa.certificate
 ...

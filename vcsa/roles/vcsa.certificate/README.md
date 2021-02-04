@@ -10,6 +10,19 @@ Requirements
 Role Variables
 --------------
 
+
+| Name           | Description                                | Mandatory | Type   |
+| -------------- | ------------------------------------------ | --------- | ------ |
+| site |  Site.. | true | string
+| domain | Domain with ADsite | true | string
+| digicert_url | https://cacerts.digicert.com/ | true  | string
+| root_ca_file | root ca .crt file | true | file
+| datacenter | Name of the Datacenter for snapshotrole | true | string
+| vmNameToSnap | vCenter VM name for snapshot role | true | string
+| snapshot | snapshot name | true | string
+| vcenter | vCenter to change certificate | true | string
+| vc1Fqdn |vCenter for snapshot | true | string
+
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 Dependencies
@@ -19,12 +32,27 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 
 Example Playbook
 ----------------
+# Example Playbook:
+```yaml
+#
+# Role to change vCenter Server certificates
+# Author: Julian Wendland
+#
+---
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+- name: Change vCenter Certificates
+  hosts: localhost
+  connection: local
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+  vars_files:
+    - /home/jw/github/Ansible/roles/vcsa/roles/vcsa.general/vault/secrets.yml
+
+  roles:
+    - roles/vcsa.general
+    - roles/vcsa.vm.snapshot
+    - roles/vcsa.certificate
+...
+```
 
 License
 -------

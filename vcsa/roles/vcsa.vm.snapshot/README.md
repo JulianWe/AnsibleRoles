@@ -11,6 +11,7 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
+
 | Name           | Description                                | Mandatory | Type   |
 | -------------- | ------------------------------------------ | --------- | ------ |
 | datacenter | Datacenter Name | true | string
@@ -28,14 +29,25 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+#
+# Role to change vCenter Server certificates
+# Author: Julian Wendland
+#
+---
 
-    - hosts: servers
-      roles:
-         - { role: vcsa.vm.snapshot }
+- name: snapshot a vm 
+  hosts: localhost
+  connection: local
 
-License
--------
+  vars_files:
+    - /home/jw/github/Ansible/roles/vcsa/roles/vcsa.general/vault/secrets.yml
+
+  roles:
+    - roles/vcsa.vm.snapshot
+...
+```
+
 
 
 Author Information
