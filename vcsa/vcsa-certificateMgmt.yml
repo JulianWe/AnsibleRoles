@@ -10,7 +10,7 @@
   connection: local
   
   vars_files:
-    - /home/jw/github/Ansible/roles/vcsa/roles/vcsa.general/vault/secrets.yml
+    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
   
   roles:
     - roles/vcsa.general
