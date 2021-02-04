@@ -1,0 +1,9 @@
+---
+# tasks file for vcsa.certificate
+
+- include: vmware_vcsa_cert_mgmt.yml
+#- include: get_certificate_from_digicert.yml
+#- include: get_certificate_from_github.yml
+#- include: convert_digicert_from_crt_to_pem.yml
+- include: roles/vcsa.vm.snapshot/handlers/main.yml
+...

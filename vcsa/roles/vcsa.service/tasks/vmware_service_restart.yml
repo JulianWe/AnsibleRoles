@@ -1,0 +1,14 @@
+---
+  - name: retart-services
+    uri:
+      url: "https://{{ vcenter }}/rest/appliance/services/{{ item }}/restart"
+      method: POST
+      validate_certs: no
+      body_format: json
+      headers:
+        Cookie: "{{ login.set_cookie }}"
+    loop:
+      - vmcad
+      - vmdird
+      - vmafdd
+...

@@ -1,0 +1,16 @@
+---
+# vars file for vcsa
+site: "{{ inventory_hostname.split('.')[2] | lower }}"
+domain: "{{ inventory_hostname | adsite('fqdn') }}"
+digicert_url: https://cacerts.digicert.com/
+root_ca_file: DigiCertGlobalRootCA.crt
+interm_ca_file: DigiCertSHA2SecureServerCA.crt
+datacenter: Noris
+vmNameToSnap: jw-vcsa7
+vcenter: 10.0.20.94
+vc1Fqdn: vc-1.vdi.sclabs.net
+snapshot: ansible_auto_snap
+files:
+  - "{{ inventory_hostname }}.pem"
+  - "{{ inventory_hostname }}-key.pem"
+... 

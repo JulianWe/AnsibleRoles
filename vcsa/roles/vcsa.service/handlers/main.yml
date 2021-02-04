@@ -1,0 +1,6 @@
+---
+# main.yml handlers file
+# Julian Wendland - Soeldner Consult GmbH
+# 25.01.2021
+- include: vmware_vcsa_service_restart.yml
+...

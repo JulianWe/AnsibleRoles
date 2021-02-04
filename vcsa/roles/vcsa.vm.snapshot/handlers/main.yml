@@ -1,0 +1,16 @@
+---
+# handlers file for vcsa.vm.snapshot
+#- include: vcsa/roles/vcsa.vm.snapshot/handlers/vmware_vcsa_vm_remove_snapshot.yml 
+- name: remove-snapshot
+  vmware_guest_snapshot:
+    hostname: "{{ vc1Fqdn }}"
+    username: "{{ vc1Username }}"
+    password: "{{ vc1Password }}"
+    validate_certs: no
+    datacenter: "{{ datacenter }}"
+    folder: "/{{ datacenter }}/vm/"
+    name: "{{ vmNameToSnap }}"
+    state: absent
+    snapshot_name: "{{ snapshot }}"
+  delegate_to: 127.0.0.1
+...

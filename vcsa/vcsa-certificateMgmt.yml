@@ -1,0 +1,19 @@
+# TODO: change secrets.yml path
+#
+# Role to change vCenter Server certificates
+# Author: Julian Wendland
+#
+---
+
+- name: Change vCenter Certificates
+  hosts: localhost
+  connection: local
+  
+  vars_files:
+    - /home/jw/github/Ansible/roles/vcsa/roles/vcsa.general/vault/secrets.yml
+  
+  roles:
+    - roles/vcsa.general
+    - roles/vcsa.vm.snapshot
+    - roles/vcsa.certificate
+...

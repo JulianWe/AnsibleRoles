@@ -1,0 +1,7 @@
+# main.yml role file
+# Julian Wendland - Soeldner Consult GmbH
+# 25.01.2021
+---
+# tasks file for vcsa role
+- include: vmware_vcsa_rest_login.yml
+...

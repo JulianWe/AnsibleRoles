@@ -1,0 +1,3 @@
+---
+# defaults file for vcsa.vm.snapshot
+snapshot: ansible_snap

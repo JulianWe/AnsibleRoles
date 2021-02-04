@@ -1,0 +1,17 @@
+---
+  - name: convert root ca certificates from crt to pem format
+    shell: "openssl x509 -inform der -outform pem -in {{ item }} -out {{ item.split('.')[0] }}.pem"
+    args:
+      chdir: /tmp/
+    loop:
+      - "{{ interm_ca_file }}"
+      - "{{ root_ca_file }}"
+    register: openssl_results
+    delegate_to: 127.0.0.1
+
+  - name: check if certificate conversion was successful
+    fail:
+      msg: "RC: {{ item.rc }} ({{ item.cmd }})"
+    when: item.rc != 0
+    loop: "{{ openssl_results.results }}"
+...

@@ -1,0 +1,12 @@
+---
+- name: get root ca certificates from digicert
+  get_url:
+    url: "{{ digicert_url }}{{ item }}"
+    dest: /tmp/
+    timeout: 20
+    validate_certs: yes
+  loop:
+    - "{{ root_ca_file }}"
+    - "{{ interm_ca_file }}"
+  delegate_to: 127.0.0.1
+...

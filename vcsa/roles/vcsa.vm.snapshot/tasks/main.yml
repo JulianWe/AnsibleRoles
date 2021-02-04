@@ -1,0 +1,3 @@
+---
+# tasks file for vcsa.vm.snapshot
+- include: vmware_vm_snapshot_mgmt.yml

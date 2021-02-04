@@ -1,0 +1,4 @@
+---
+# handlers file for vcsa.certificate
+- import_tasks: roles/vcsa.vm.snapshot/handlers/main.yml
+...

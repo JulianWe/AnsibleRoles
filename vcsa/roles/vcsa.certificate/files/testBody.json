@@ -1,0 +1,13 @@
+{
+    "spec": {
+        "common_name": "jw-vcsa7.vdi.sclabs.net",
+        "country": "DE",
+        "email_address": "julian.wendland@soeldner-consult.de",
+        "key_size": 16384,
+        "locality": "Nuernberg",
+        "organization": "SoeldnerConsultGmbH",
+        "organization_unit": "",
+        "state_or_province": "Bavaria",
+        "subject_alt_name": [ "" ]
+    }
+}

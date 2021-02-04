@@ -1,0 +1,42 @@
+---
+  - name: get Cert Chain
+    uri:
+      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains"
+      method: GET
+      validate_certs: no
+      headers:
+        Cookie: "{{ login.set_cookie }}"
+    register: certChain
+
+  - name: debug certChain
+    debug: 
+      msg: 
+        - "{{ certChain }}"
+
+  - name: get certificate
+    uri:
+      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains/BD0AFF1F71A9FBEB78DC8B54325DD872BB0F6F2B"
+      method: GET
+      validate_certs: no
+      headers:
+        Cookie: "{{ login.set_cookie }}"
+    loop: 
+      - certChain
+    register: certificate
+
+  - name: debug certificate
+    debug: 
+      msg: 
+        - "{{ certificate }}"
+
+  - name: Creates a new trusted root certificate chain from the CreateSpec.
+    uri:
+      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains"
+      method: POST
+      validate_certs: no
+      body_format: json
+      body: "{{ lookup('file','certBody.json') }}"
+      headers:
+        Cookie: "{{ login.set_cookie }}"
+    notify: remove-snapshot
+...

@@ -1,0 +1,9 @@
+{
+    "editor.insertSpaces": false,
+    "json.schemas": [
+    
+    ],"files.associations": {
+        "**/*.yml": "ansible"
+    },
+    "ansible.validation": true
+}

@@ -1,0 +1,3 @@
+---
+# tasks file for vcsa.backup
+- include: vmware_vcsa_backup_mgmt.yml
