@@ -15,7 +15,8 @@ Role Variables
 
 The portocols supported for backup are FTPS, HTTPS, SFTP, FTP, NFS, SMB and HTTP.
 
-`
+| [sap.vcsa.general](roles/example/)          | What happens here                   |
+
 Role Structure
 --------------
 
@@ -47,10 +48,8 @@ Role Structure
 
 Example Playbook
 ----------------
-
 ```yaml
 ---
-
 - name: Schedule vcsa backup
   hosts: localhost
   connection: local
@@ -61,7 +60,6 @@ Example Playbook
   roles:
     - roles/vcsa.general
     - roles/vcsa.backup
-
 ...
 ```
 
