@@ -1,17 +1,12 @@
 vcsa.vm.snapshot
 ================
 
-This Role is used to handle vCenter Snapshots
+This Role is used to handle VM Snapshots
 
-Requirements
-------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
-
-
 | Name           | Description                                | Mandatory | Type   |
 | -------------- | ------------------------------------------ | --------- | ------ |
 | datacenter | Datacenter Name | true | string
@@ -19,16 +14,35 @@ Role Variables
 | vc1Fqdn | FQDN from Managment vCenter | true | string
 | snapshot | Name des Snapshots | true | string
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-Dependencies
-------------
+Role Structure
+--------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```bash
+.
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   ├── main.yml
+│   └── vmware_vm_snapshot_mgmt.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+8 directories, 9 files
+```
 
 Example Playbook
 ----------------
-
 ```yaml
 #
 # Role to change vCenter Server certificates
