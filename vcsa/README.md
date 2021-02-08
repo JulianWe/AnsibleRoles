@@ -18,11 +18,11 @@ ansible-galaxy install git+https://github.tools.sap/cia/sap.vcsa,main
 ### Roles
 | Name                                      | Description                                       |
 |-------------------------------------------|---------------------------------------------------|
-| [sap.vcsa.general](roles/example/)          | A role to handle general vCenter Tasks for example login via REST API |
-| [sap.vcsa.service](roles/example/)          | A role to manage vCenter Server services    	 |
-| [sap.vcsa.vm.snapshot](roles/example/)      | A role to manage VM snapshots via REST API   	 |
-| [sap.vcsa.certificate](roles/example/)      | A role to change vCenter root ca certificate     |
-| [sap.vcsa.backup](roles/example/)           | A role to setup vCenter backup schadule          |
+| [sap.vcsa.general](roles/vcsa.general/)          | A role to handle general vCenter Tasks for example login via REST API |
+| [sap.vcsa.service](roles/vcsa.service/)          | A role to manage vCenter Server services    	 |
+| [sap.vcsa.vm.snapshot](roles/vcsa.vm.snapshot/)      | A role to manage VM snapshots 		   	 |
+| [sap.vcsa.certificate](roles/vcsa.certificate/)      | A role to change vCenter root ca certificate     |
+| [sap.vcsa.backup](roles/vcsa.backup/)           | A role to setup vCenter backup schadule          |
 
 
 Roles Structure
