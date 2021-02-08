@@ -10,7 +10,6 @@ Requirements
 Role Variables
 --------------
 
-
 | Name           | Description                                | Mandatory | Type   |
 | -------------- | ------------------------------------------ | --------- | ------ |
 | site |  Site.. | true | string
@@ -21,9 +20,10 @@ Role Variables
 | vmNameToSnap | vCenter VM name for snapshot role | true | string
 | snapshot | snapshot name | true | string
 | vcenter | vCenter to change certificate | true | string
-| vc1Fqdn |vCenter for snapshot | true | string
+
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+
 
 Dependencies
 ------------
@@ -32,14 +32,10 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 
 Example Playbook
 ----------------
-# Example Playbook:
-```yaml
-#
-# Role to change vCenter Server certificates
-# Author: Julian Wendland
-#
----
 
+```yaml
+# Role to change vCenter Server certificate
+---
 - name: Change vCenter Certificates
   hosts: localhost
   connection: local
@@ -54,12 +50,10 @@ Example Playbook
 ...
 ```
 
-License
--------
-
-BSD
 
 Author Information
 ------------------
 
-Julian Wendland Söldner Consult GmbH 04.02.2021
+Julian Wendland 
+Soeldner Consult GmbH 
+04.02.2021
