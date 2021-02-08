@@ -1,6 +1,67 @@
 ---
+# author: 
+#   - 'Marc Wappler (D060655)'
+# contributers:
+#   - 'Raimund Kunath (D060689)'
+#   - 'Dominik Buchner (VMware)'
+# vmware_kb:
+#   - 'https://kb.vmware.com/s/article/2121701' (6.x)
+#   - 'https://kb.vmware.com/s/article/78709' (7.0)
+---
+
 - name: get vmdir node id
   shell: cat /etc/vmware/install-defaults/vmdir.ldu-guid
   register: cat_nodeid
 
-...
+- name: set 'nodeid' fact
+  set_fact:
+    nodeid: "{{ cat_nodeid.stdout }}"
+
+- debug: var=nodeid
+
+- name: get old ssl trust anchor from lookupservice
+  vars:
+    type: com.vmware.cis.cs.identity.sso
+  shell: ./lstool.py list --url {{ lookup_url }} --no-check-cert --ep-type {{ type }} 2>/dev/null
+  args:
+    chdir: /usr/lib/vmware-lookupsvc/tools/
+  register: ssl_trust_anchor
+
+- name: fetch certificate data from trust anchor
+  set_fact:
+    trust_anchor_raw: "{{ ssl_trust_anchor.stdout | regex_search('(?<=\\sSSL trust: )(.+)') }}"
+
+- name: restructure certificate data to match pem format
+  set_fact:
+    certificate_pem: "{{ trust_anchor_raw | regex_replace('(.{64})', '\\1\\n') | regex_replace('$\\n', '') }}"
+
+- debug: var=certificate_pem
+
+- name: create old certificate file on disk
+  vars:
+    b64_encoded_data: "{{ certificate_pem }}"
+  template:
+    src: "{{ playbook_dir }}/../../templates/cert.pem.j2"
+    dest: /tmp/old.pem
+  delegate_to: 127.0.0.1
+
+- name: check certificate by openssl
+  shell: openssl x509 -in /tmp/old.pem -fingerprint -noout
+  register: openssl_thumb_checkout
+  delegate_to: 127.0.0.1
+
+- name: chmod ls_update_certs to executable
+  shell: chmod +x ./ls_update_certs.py 
+  args:
+    chdir: /usr/lib/vmware-lookupsvc/tools/
+  delegate_to: 127.0.0.1
+
+- name: update lookupservice service registrations with new machine ssl cert
+  vars:
+    thumbprint: "{{ openssl_thumb_checkout.stdout | regex_search('(?<=SHA1 Fingerprint=).+') }}"
+  shell: ./ls_update_certs.py --url "{{ lookup_url }}" --fingerprint "{{ thumbprint }}" --certfile "/tmp/{{ inventory_hostname }}.pem" --user "{{ users['vcenter']['username'] }}" --password "{{ users['vcenter']['run_password'] }}" 2> /dev/null
+  args:
+    chdir: /usr/lib/vmware-lookupsvc/tools/
+  register: ls_update_command
+  ifailed_when: ls_update_command.rc > 0
+  ...
