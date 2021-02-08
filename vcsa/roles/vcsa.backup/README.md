@@ -15,7 +15,6 @@ Role Variables
 
 The portocols supported for backup are FTPS, HTTPS, SFTP, FTP, NFS, SMB and HTTP.
 
-| [sap.vcsa.general](roles/example/)          | What happens here                   |
 
 Role Structure
 --------------
@@ -66,7 +65,6 @@ Example Playbook
 
 Author Information
 ------------------
-
 Julian Wendland
 Soeldner Consult GmbH
 09.02.2021

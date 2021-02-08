@@ -24,6 +24,37 @@ Role Variables
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
+Role Structure
+--------------
+```bash
+.
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   ├── convert_digicert_from_crt_to_pem.yml
+│   ├── get_certificate_from_digicert.yml
+│   ├── get_certificate_from_github.yml
+│   ├── main.yml
+│   ├── old_vmware_vcsa_cert_mgmt.yml
+│   ├── vmware_lookupservice_issue.yml
+│   └── vmware_vcsa_cert_mgmt.yml
+├── templates
+│   └── vmware_vcsa_cert_mgmt_jsonBody.j2
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+8 directories, 15 files
+```
+
 
 Dependencies
 ------------
