@@ -1,5 +1,5 @@
 vcsa.service
-===========
+============
 
 VCSA Ansible role to restart vCenter services
 

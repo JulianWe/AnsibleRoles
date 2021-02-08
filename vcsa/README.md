@@ -150,7 +150,6 @@ Roles Structure
 ```yaml
 # How to reuse vcsa roles
 ---
-
 - name: reuse vcsa roles 
   hosts: localhost
   connection: local
