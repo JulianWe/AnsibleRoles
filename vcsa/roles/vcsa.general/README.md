@@ -1,7 +1,7 @@
-vcsa.backup
+vcsa.general
 ===========
 
-VCSA Ansible role to setup Appliance backup schedule 
+VCSA Ansible role to handle all generell tasks regarding vCenter Server
 
 Role Variables
 --------------
