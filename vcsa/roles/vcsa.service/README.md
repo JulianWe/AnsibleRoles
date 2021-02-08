@@ -1,38 +1,65 @@
 vcsa.service
-============
+===========
 
-This Role is used to handle vCenter Services.
+VCSA Ansible role to restart vCenter services
 
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
+| Name | Description | Mandatory | Type
+| -------------- | ------------------------------------------ | --------- | ------ |
+| vcenter | vcenter FQDN or IP | true | string
+| service | vcenter service to restart | true | string
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Role Structure
+--------------
 
-Dependencies
-------------
+```bash
+.
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   ├── main.yml
+│   └── vmware_vcsa_service_restart.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   ├── main.yml
+│   └── vmware_service_restart.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+8 directories, 10 files
+```
+
 
 Example Playbook
 ----------------
+```yaml
+---
+- name: restart vCenter service
+  hosts: localhost
+  connection: local
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+  vars_files:
+    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+  roles:
+    - roles/vcsa.general
+    - roles/vcsa.service
+...
+```
 
-License
--------
-
-BSD
 
 Author Information
 ------------------
+Julian Wendland
+Soeldner Consult GmbH
+09.02.2021
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
