@@ -1,38 +1,63 @@
-vcsa.general
-============
+vcsa.backup
+===========
 
-This role is used for all tasks that are reusable in other vcsa roles
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+VCSA Ansible role to setup Appliance backup schedule 
 
 Role Variables
 --------------
+| Name | Description | Mandatory | Type
+| -------------- | ------------------------------------------ | --------- | ------ |
+| vcenter | vcenter FQDN or IP | true | string
+| vcUsername | vCenter username | true | string
+| vcPassword | vCenter password | true | string
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-Dependencies
-------------
+Role Structure
+--------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```bash.
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   ├── main.yml
+│   └── vmware_vcsa_rest_login.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+├── vars
+│   └── main.yml
+└── vault
+    └── secrets.yml
+
+9 directories, 10 files
+```
+
 
 Example Playbook
 ----------------
+```yaml
+---
+- name: login via REST API
+  hosts: localhost
+  connection: local
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+  vars_files:
+    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+  roles:
+    - roles/vcsa.general
+```
 
-License
--------
-
-BSD
 
 Author Information
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Julian Wendland
+Soeldner Consult GmbH
+09.02.2021
