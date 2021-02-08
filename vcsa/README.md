@@ -25,7 +25,7 @@ ansible-galaxy install git+https://github.tools.sap/cia/sap.vcsa,main
 | [sap.vcsa.backup](roles/example/)           | A role to setup vCenter backup schadule          |
 
 
-Role Structure
+Roles Structure
 ===============
 
 ```bash
@@ -170,4 +170,4 @@ Author Information
 
 Julian Wendland
 Soeldner Consult GmbH
-09.02.2021
+08.02.2021
