@@ -6,6 +6,7 @@ VCSA Ansible role to setup Appliance backup schedule
 Role Variables
 --------------
 | Name | Description | Mandatory | Type
+| -------------- | ------------------------------------------ | --------- | ------ |
 | vcenter | vcenter FQDN or IP | true | string
 | backup_password | Password for Backup encryption | true | string
 | backup_location | *example:  sftp://ns1.sclabs.net/home/vcenter/auto_backup | true | string
