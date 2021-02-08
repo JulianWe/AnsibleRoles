@@ -1,4 +1,3 @@
----
 # author: 
 #   - 'Marc Wappler (D060655)'
 # contributers:
@@ -50,18 +49,12 @@
   register: openssl_thumb_checkout
   delegate_to: 127.0.0.1
 
-- name: chmod ls_update_certs to executable
-  shell: chmod +x ./ls_update_certs.py 
-  args:
-    chdir: /usr/lib/vmware-lookupsvc/tools/
-  delegate_to: 127.0.0.1
-
 - name: update lookupservice service registrations with new machine ssl cert
   vars:
     thumbprint: "{{ openssl_thumb_checkout.stdout | regex_search('(?<=SHA1 Fingerprint=).+') }}"
-  shell: ./ls_update_certs.py --url "{{ lookup_url }}" --fingerprint "{{ thumbprint }}" --certfile "/tmp/{{ inventory_hostname }}.pem" --user "{{ users['vcenter']['username'] }}" --password "{{ users['vcenter']['run_password'] }}" 2> /dev/null
+  shell: python ls_update_certs.py --url "{{ lookup_url }}" --fingerprint "{{ thumbprint }}" --certfile "/tmp/{{ inventory_hostname }}.pem" --user "{{ users['vcenter']['username'] }}" --password "{{ users['vcenter']['run_password'] }}" 2> /dev/null
   args:
     chdir: /usr/lib/vmware-lookupsvc/tools/
   register: ls_update_command
-  ifailed_when: ls_update_command.rc > 0
-  ...
+  failed_when: ls_update_command.rc > 0
+
