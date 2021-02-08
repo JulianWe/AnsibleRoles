@@ -1,0 +1,6 @@
+---
+- name: get vmdir node id
+  shell: cat /etc/vmware/install-defaults/vmdir.ldu-guid
+  register: cat_nodeid
+
+...

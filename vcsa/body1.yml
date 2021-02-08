@@ -1,0 +1,18 @@
+{
+    "spec": {
+        "backup_password": "{{ backup_pwd }}",
+        "enable": true,
+        "location": "{{ backup_location }}",
+        "location_password": "{{ backup_location_pwd }}",
+        "location_user": "{{ backup_location_user }}",
+        "parts": [ "" ],
+        "recurrence_info": {
+            "days": [ "Daily" ],
+            "hour": 12,
+            "minute": 0
+        },
+        "retention_info": {
+            "max_count": 7
+        }
+    }
+}
