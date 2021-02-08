@@ -1,10 +1,10 @@
 {
     "spec": {
-        "backup_password": "VMware1!",
+        "backup_password": "{{ backup_password }}",
         "enable": true,
         "location": "sftp://ns1.sclabs.net/home/vcenter/auto_backup",
-        "location_password": "Noris0815!",
-        "location_user": "root",
+        "location_password": "{{ location_password }}",
+        "location_user": "{{ location_user }}",
 	"parts": [ "common" ],
         "recurrence_info": {
             "days": [ ],

@@ -7,13 +7,13 @@
       headers:
         Cookie: "{{login.set_cookie}}"
   
-  - name: Get Backup schedule
-    uri:
-      url: "https://{{ vcenter }}/rest/appliance/recovery/backup/schedules/auto_schedule"
-      method: GET
-      validate_certs: no 
-      headers:
-        Cookie: "{{login.set_cookie}}"   
+#  - name: Get Backup schedule
+#    uri:
+#      url: "https://{{ vcenter }}/rest/appliance/recovery/backup/schedules/auto_schedule"
+#      method: GET
+#      validate_certs: no 
+#      headers:
+#        Cookie: "{{login.set_cookie}}"   
 
   - name: Set Backup schedule
     uri: 
