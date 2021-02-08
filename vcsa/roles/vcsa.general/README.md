@@ -1,7 +1,7 @@
-vcsa.backup
+vcsa.general
 ===========
 
-VCSA Ansible role to setup Appliance backup schedule 
+VCSA Ansible role to handle all generell tasks regarding vCenter Server
 
 Role Variables
 --------------
@@ -17,22 +17,22 @@ Role Structure
 
 ```bash.
 ├── defaults
-│   └── main.yml
+│   └── main.yml
 ├── files
 ├── handlers
-│   └── main.yml
+│   └── main.yml
 ├── meta
-│   └── main.yml
+│   └── main.yml
 ├── README.md
 ├── tasks
-│   ├── main.yml
-│   └── vmware_vcsa_rest_login.yml
+│   ├── main.yml
+│   └── vmware_vcsa_rest_login.yml
 ├── templates
 ├── tests
-│   ├── inventory
-│   └── test.yml
+│   ├── inventory
+│   └── test.yml
 ├── vars
-│   └── main.yml
+│   └── main.yml
 └── vault
     └── secrets.yml
 
