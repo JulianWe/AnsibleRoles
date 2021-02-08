@@ -1,5 +1,17 @@
 # VCSA Ansible Roles
 
+
+## Content
+### Roles
+| Name                                      | Description                                       |
+|-------------------------------------------|---------------------------------------------------|
+| [sap.vcsa.general](roles/example/)          | A role to handle general vCenter Tasks for example login via REST API |
+| [sap.vcsa.service](roles/example/)          | A role to manage vCenter Server services    	 |
+| [sap.vcsa.vm.snapshot](roles/example/)      | A role to manage VM snapshots via REST API   |
+| [sap.vcsa.certificate](roles/example/)      | What happens here                 		 |
+| [sap.vcsa.backup](roles/example/)           | A role to setup vCenter backup schadule           |
+
+
 Role Structure
 ===============
 
@@ -119,10 +131,7 @@ Role Structure
 
 # Example Playbook:
 ```yaml
-#
 # How to reuse vcsa roles
-# Author: Julian Wendland
-#
 ---
 
 - name: reuse vcsa roles 
@@ -138,3 +147,10 @@ Role Structure
     - roles/vcsa.certificate
 ...
 ```
+
+Author Information
+------------------
+
+Julian Wendland
+Soeldner Consult GmbH
+09.02.2021

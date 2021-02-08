@@ -15,10 +15,35 @@ Role Variables
 
 The portocols supported for backup are FTPS, HTTPS, SFTP, FTP, NFS, SMB and HTTP.
 
-Dependencies
-------------
+`
+Role Structure
+--------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```bash
+.
+├── defaults
+│   └── main.yml
+├── files
+│   └── testBody.yml
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   ├── main.yml
+│   └── vmware_vcsa_backup_mgmt.yml
+├── templates
+│   └── backup_schedule_request_body.j2
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+8 directories, 11 files
+```
+
 
 Example Playbook
 ----------------
@@ -40,10 +65,6 @@ Example Playbook
 ...
 ```
 
-License
--------
-
-BSD
 
 Author Information
 ------------------
