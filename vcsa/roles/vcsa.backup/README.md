@@ -1,19 +1,18 @@
 vcsa.backup
-=========
+===========
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-```
-pip install pyvmomi
-```
+VCSA Ansible role to setup Appliance backup schedule 
 
 Role Variables
 --------------
 | Name | Description | Mandatory | Type
-| 
+| vcenter | vcenter FQDN or IP | true | string
+| backup_password | Password for Backup encryption | true | string
+| backup_location | *example:  sftp://ns1.sclabs.net/home/vcenter/auto_backup | true | string
+| location_password | Password for backup location | true | string
+| location_user | User for backup location root | true | string
+
+The portocols supported for backup are FTPS, HTTPS, SFTP, FTP, NFS, SMB and HTTP.
 
 Dependencies
 ------------
@@ -23,11 +22,22 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+---
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- name: Schedule vcsa backup
+  hosts: localhost
+  connection: local
+
+  vars_files:
+    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
+
+  roles:
+    - roles/vcsa.general
+    - roles/vcsa.backup
+
+...
+```
 
 License
 -------
@@ -37,4 +47,6 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Julian Wendland
+Soeldner Consult GmbH
+09.02.2021
