@@ -42,8 +42,11 @@ Role Structure
 Example Playbook
 ----------------
 ```yaml
+# Author: Julian Wendland
+#
 ---
-- name: restart vCenter service
+
+- name: Schedule vcsa backup
   hosts: localhost
   connection: local
 
@@ -51,8 +54,8 @@ Example Playbook
     - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
 
   roles:
-    - roles/vcsa.general
-    - roles/vcsa.service
+    - { role: vcsa.general, vcenter: 10.0.20.94 }
+    - { role: vcsa.service, vcenter: 10.0.20.94 }
 ...
 ```
 

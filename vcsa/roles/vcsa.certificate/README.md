@@ -81,6 +81,9 @@ Example Playbook
 ...
 ```
 
+API Documentation
+-----------------
+Replaces the rhttpproxy TLS certificate with the specified certificate. This operation can be used in three scenarios : 1. When the CSR is created and the private key is already stored, this operation can replace the certificate. The certificate but not the private key and root certificate must be provided as input. 2. When the certificate is signed by a third party certificate authority/VMCA and the root certificate of the third party certificate authority/VMCA is already one of the trusted roots in the trust store, this operation can replace the certificate and private key. The certificate and the private key but not the root certificate must be provided as input. 3. When the certificate is signed by a third party certificate authority and the root certificate of the third party certificate authority is not one of the trusted roots in the trust store, this operation can replace the certificate, private key and root CA certificate. The certificate, private key and root certificate must be provided as input. After this operation completes, the services using the certificate will be restarted for the new certificate to take effect. The above three scenarios are only supported from vsphere 7.0 onwards. if you do not have all of the privileges described as follows: - Operation execution requires CertificateManagement.Administer.
 
 Author Information
 ------------------

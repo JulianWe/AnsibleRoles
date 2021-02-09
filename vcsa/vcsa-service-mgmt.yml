@@ -1,10 +1,10 @@
 #
-# Role to schedule vcsa vami backup
+# Role to Check vCenter services health status
 # Author: Julian Wendland
 #
 ---
 
-- name: Schedule vcsa backup 
+- name: check vcenter services health
   hosts: localhost
   connection: local
 
@@ -12,6 +12,6 @@
     - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
 
   roles:
-    - roles/vcsa.general
+    - { role: vcsa.general, vcenter: 10.0.20.94 }
     - { role: vcsa.service, vcenter: 10.0.20.94 }
 ...
