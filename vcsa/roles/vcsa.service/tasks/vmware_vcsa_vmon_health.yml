@@ -1,0 +1,28 @@
+  - name: get health status
+    vars:
+      query: /rest/appliance/vmon/service
+    uri:
+      url: "https://{{ vcenter }}{{ query }}"
+      method: GET
+      validate_certs: no
+      follow_redirects: all
+      status_code: 200
+      headers:
+        Accept: "application/json"
+        vmware-api-session-id: "{{ api_token }}"
+    register: health
+    failed_when: health.status != 200
+    delegate_to: 127.0.0.1
+
+  - name: debug
+    debug:
+      msg: "{{ health }}"
+
+
+  - name: "verify service health for {{ item.1 }}"
+    fail:
+      msg: "Health status check failed!"
+    when:
+      - item.0.key == item.1
+      - item.0.value.health != "HEALTHY"
+    loop: "{{ health.json['value'] | product(health) | list }}"

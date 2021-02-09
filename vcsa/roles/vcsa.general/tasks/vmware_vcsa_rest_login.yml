@@ -9,4 +9,11 @@
       status_code: 200
       validate_certs: no
     register: login
+    failed_when: login.status != 200
+    delegate_to: localhost
+
+  - name: save api token
+    no_log: true
+    set_fact:
+      api_token: "{{ login.json['value'] }}"
 ...

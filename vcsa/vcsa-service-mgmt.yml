@@ -1,0 +1,17 @@
+#
+# Role to schedule vcsa vami backup
+# Author: Julian Wendland
+#
+---
+
+- name: Schedule vcsa backup 
+  hosts: localhost
+  connection: local
+
+  vars_files:
+    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
+
+  roles:
+    - roles/vcsa.general
+    - { role: vcsa.service, vcenter: 10.0.20.94 }
+...

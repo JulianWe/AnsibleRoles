@@ -1,2 +1,4 @@
 ---
 # vars file for vcsa.service
+vcenter: 10.0.20.94
+service: vmware-updatemgr

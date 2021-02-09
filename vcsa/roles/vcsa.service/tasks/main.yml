@@ -1,3 +1,4 @@
 ---
 # tasks file for vcsa.service
-- include: vmware_service_restart.yml
+#- include: vmware_service_restart.yml
+- include: vmware_vcsa_vmon_health.yml
