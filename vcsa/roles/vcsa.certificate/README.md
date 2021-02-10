@@ -60,8 +60,9 @@ Role Structure
 
 Dependencies
 ------------
+ - { role: vcsa.general, vcenter: fqdn, vcUsername: unsername, vcPassword: password }
+ - { role: vcsa.vm.snapshot, vmNameToSnap: vcsa, snapshot: name, datacenter: Datacenter }
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
