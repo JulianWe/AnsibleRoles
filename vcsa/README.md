@@ -169,6 +169,9 @@ Roles Structure
 ---------------------
 This is the vSphere REST API Reference. It provides API documentation, request/response samples, usage and description.
 
+
+# Testing
+---------
 ```bash
 ansible-test network-integration --inventory inventory.networking.private lab-local_dns
 ```
