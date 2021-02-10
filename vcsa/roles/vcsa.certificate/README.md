@@ -21,8 +21,8 @@ Role Variables
 | snapshot | snapshot name | true | string
 | vcenter | vCenter to change certificate | true | string
 | cert | Certificate | true | string
-| key | private_key | true | string
-| root_cert | root_cert | true | string
+| key | private_key | false | string
+| root_cert | root_cert | false | string
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 

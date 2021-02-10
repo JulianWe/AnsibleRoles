@@ -165,6 +165,11 @@ Roles Structure
 ```
 
 
+# [API Documentation](https://developer.vmware.com/docs/vsphere-automation/latest/)
+-----------------------------------------------------------------------------------
+This is the vSphere REST API Reference. It provides API documentation, request/response samples, and usage and description.
+
+
 Author Information
 ------------------
 
