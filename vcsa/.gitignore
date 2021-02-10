@@ -1,0 +1,8 @@
+# ansible-test results
+
+# Environments
+
+# private
+*.private
+.ansible-test/**
+Dockerfile
