@@ -1,15 +1,15 @@
 ---
-
-  - name: get Cert Chain
-    uri:
-      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/tls"
-      method: PUT
-      validate_certs: no
-      body_format: json
-      body: "{{ lookup('template','vmware_vcsa_cert_mgmt_jsonBody.json') }}"
-      headers:
-        Cookie: "{{ login.set_cookie }}"
-    register: put_cert
+- name: PUT certificate 
+  uri:
+    url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/tls"
+    method: PUT
+    validate_certs: no
+    body_format: json
+    body: "{{ lookup('template','vmware_vcsa_cert_mgmt_jsonBody.j2') }}"
+    headers:
+      Cookie: "{{ login.set_cookie }}"
+  register: put_cert
+  notify: remove-snapshot
 
 #  - name: get Cert Chain
 #    uri:
@@ -20,10 +20,10 @@
 #        Cookie: "{{ login.set_cookie }}"
 #    register: certChain
 
-  - name: debug cert PUT
-    debug: 
-      msg: 
-        - "{{ put_cert }}"
+- name: debug cert PUT
+  debug: 
+    msg: 
+      - "{{ put_cert }}"
 
 #  - name: get certificate
 #    uri:

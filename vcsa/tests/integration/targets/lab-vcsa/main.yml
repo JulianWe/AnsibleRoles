@@ -1,0 +1,4 @@
+- import_role: 
+    name: sap.vcsa.general
+  vars:
+    vcenter: 10.0.20.94
