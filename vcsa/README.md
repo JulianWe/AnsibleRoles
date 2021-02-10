@@ -4,13 +4,13 @@ Ansible Collection: sap.vcsa for managing vmware vCenter.
 ## Usage
 ### Requirements
 Install required python packages.
-```
+```bash
 pip install -r requirements.txt
 ```
 
 ### Install
 Install collection
-```
+```bash
 ansible-galaxy install git+https://github.tools.sap/cia/sap.vcsa,main
 ```
 
@@ -168,6 +168,10 @@ Roles Structure
 # [API Documentation](https://developer.vmware.com/docs/vsphere-automation/latest/)
 ---------------------
 This is the vSphere REST API Reference. It provides API documentation, request/response samples, usage and description.
+
+```bash
+ansible-test network-integration --inventory inventory.networking.private lab-local_dns
+```
 
 
 Author Information
