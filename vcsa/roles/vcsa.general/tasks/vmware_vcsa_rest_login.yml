@@ -1,5 +1,6 @@
 ---
   - name: vCenter Login
+    no_log: true
     uri:
       url: "https://{{ vcenter }}/rest/com/vmware/cis/session"
       force_basic_auth: yes

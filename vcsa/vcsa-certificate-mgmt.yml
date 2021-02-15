@@ -13,7 +13,5 @@
     - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
   
   roles:
-    - roles/vcsa.general
-    - roles/vcsa.vm.snapshot
     - roles/vcsa.certificate
 ...
