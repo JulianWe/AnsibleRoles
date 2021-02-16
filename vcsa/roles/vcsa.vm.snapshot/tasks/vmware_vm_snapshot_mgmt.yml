@@ -1,14 +1,14 @@
 ---
   - name: create vcsa snapshot before certificate change action
     vmware_guest_snapshot:
-      hostname: "{{ vc1Fqdn }}"
-      username: "{{ vc1Username }}"
-      password: "{{ vc1Password }}"
+      hostname: "{{ vcenter_fqdn }}"
+      username: "{{ vc_username }}"
+      password: "{{ vc_password }}"
       validate_certs: no
       datacenter: "{{ datacenter }}"
       folder: "/{{ datacenter }}/vm/"
-      name: "{{ vmNameToSnap }}"
+      name: "{{ vm_name_to_snap }}"
       state: present
-      snapshot_name: "{{ snapshot }}"
+      snapshot_name: "{{ snapshot_name }}"
     delegate_to: 127.0.0.1
 ...

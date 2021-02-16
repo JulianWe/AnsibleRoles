@@ -1,12 +1,13 @@
+# Author Julian Wendland - C5318182
 ---
   - name: vCenter Login
     no_log: true
     uri:
-      url: "https://{{ vcenter }}/rest/com/vmware/cis/session"
+      url: "https://{{ vcenter_fqdn }}/rest/com/vmware/cis/session"
       force_basic_auth: yes
       method: POST
-      user: "{{ vcUsername }}"
-      password: "{{ vcPassword }}"
+      user: "{{ vc_username }}"
+      password: "{{ vc_password }}"
       status_code: 200
       validate_certs: no
     register: login

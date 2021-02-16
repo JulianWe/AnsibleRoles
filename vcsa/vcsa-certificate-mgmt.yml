@@ -1,4 +1,3 @@
-# TODO: change secrets.yml path
 #
 # Role to change vCenter Server certificates
 # Author: Julian Wendland
@@ -13,7 +12,7 @@
     - include: roles/vcsa.vm.snapshot/handlers/main.yml
 
   vars_files:
-    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
+    - /home/c5318182/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
   
   roles:
     - roles/vcsa.certificate

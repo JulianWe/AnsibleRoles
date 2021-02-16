@@ -17,9 +17,9 @@ Role Variables
 | digicert_url | https://cacerts.digicert.com/ | true  | string
 | root_ca_file | root ca .crt file | true | file
 | datacenter | Name of the Datacenter for snapshotrole | true | string
-| vmNameToSnap | vCenter VM name for snapshot role | true | string
-| snapshot | snapshot name | true | string
-| vcenter | vCenter to change certificate | true | string
+| vm_name_to_snap | vCenter VM name for snapshot role | true | string
+| snapshot_name | snapshot name | true | string
+| vcenter_fqdn | vCenter to change certificate | true | string
 | cert | Certificate | true | string
 | key | private_key | false | string
 | root_cert | root_cert | false | string
@@ -60,8 +60,8 @@ Role Structure
 
 Dependencies
 ------------
- - { role: vcsa.general, vcenter: fqdn, vcUsername: unsername, vcPassword: password }
- - { role: vcsa.vm.snapshot, vmNameToSnap: vcsa, snapshot: name, datacenter: Datacenter }
+ - { role: vcsa.general, vcenter_fqdn: fqdn, vc_username: username, vc_pssword: password }
+ - { role: vcsa.vm.snapshot, vm_name_to_snap: vcsa, snapshot_name: name, datacenter: Datacenter }
 
 
 Example Playbook
@@ -78,8 +78,6 @@ Example Playbook
     - /home/jw/github/Ansible/roles/vcsa/roles/vcsa.general/vault/secrets.yml
 
   roles:
-    - roles/vcsa.general
-    - roles/vcsa.vm.snapshot
     - roles/vcsa.certificate
 ...
 ```

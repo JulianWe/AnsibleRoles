@@ -1,34 +1,33 @@
 ---
-#- name: PUT certificate 
-#  uri:
-#    url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/tls"
-#    method: PUT
-#    validate_certs: no
-#    body_format: json
-#    body: "{{ lookup('template','vmware_vcsa_cert_mgmt_jsonBody.j2') }}"
-#    headers:
-#      Cookie: "{{ login.set_cookie }}"
-#  register: put_cert
-#  notify: remove-snapshot
-
   - name: get Cert Chain
     uri:
-      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains"
+      url: "https://{{ vcenter_fqdn }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains"
       method: GET
       validate_certs: no
       headers:
         Cookie: "{{ login.set_cookie }}"
     register: certChain
 
-  - name: debug cert PUT
+  - name: debug certChain
     debug: 
       msg: 
         - "{{ certChain }}"
-    notify: remove-snapshot
+          
+#  - name: PUT certificate
+#    uri:
+#      url: "https://{{ vcenter_fqdn }}/rest/vcenter/certificate-management/vcenter/tls"
+#      method: PUT
+#      validate_certs: no
+#      body_format: json
+#      body: "{{ lookup('template','vmware_vcsa_cert_mgmt_jsonBody.j2') }}"
+#       headers:
+#        Cookie: "{{ login.set_cookie }}"
+#    register: put_cert
+  
 
 #  - name: get certificate
 #    uri:
-#      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains/BD0AFF1F71A9FBEB78DC8B54325DD872BB0F6F2B"
+#      url: "https://{{ vcenter_fqdn }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains/BD0AFF1F71A9FBEB78DC8B54325DD872BB0F6F2B"
 #      method: GET
 #      validate_certs: no
 #      headers:
@@ -40,7 +39,7 @@
  
 #  - name: Creates a new trusted root certificate chain from the CreateSpec.
 #    uri:
-#      url: "https://{{ vcenter }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains"
+#      url: "https://{{ vcenter_fqdn }}/rest/vcenter/certificate-management/vcenter/trusted-root-chains"
 #      method: POST
 #      validate_certs: no
 #      body_format: json
