@@ -1,0 +1,21 @@
+namespace: sap
+name: vcsa
+version: 1.0.0
+readme: README.md
+authors:
+- Julian Wendland (julian.wendland@sap.com)
+description: VMware vCenter Server Appliance Collection
+license:
+- Apache-2.0
+license_file: 'LICENSE'
+tags:
+  - tag1
+  - tag2
+  - tag3
+#dependencies:
+#  community.vmware: 1.5.1
+repository: https://github.wdf.sap.corp/Infrastructure-Automation/sap.vcsa.git
+homepage: https://github.wdf.sap.corp/Infrastructure-Automation/sap.vcsa
+build_ignore: []
+# documentation:
+# issues:
