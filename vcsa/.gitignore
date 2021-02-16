@@ -1,5 +1,5 @@
 # ansible-test 
-tests/**
+/tests/**
 # Environments
 
 # private
