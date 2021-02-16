@@ -9,6 +9,9 @@
   hosts: localhost
   connection: local
   
+  handlers:
+    - include: roles/vcsa.vm.snapshot/handlers/main.yml
+
   vars_files:
     - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
   
