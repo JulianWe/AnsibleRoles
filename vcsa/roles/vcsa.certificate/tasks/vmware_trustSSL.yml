@@ -1,7 +1,9 @@
+---
 - name: get old ssl trust anchor from lookupservice
   vars:
     type: com.vmware.cis.cs.identity.sso
-  shell: python ./lstool.py list --url https://10.0.20.94/lookupservice/sdk  --no-check-cert --ep-type {{ type }} 2>/dev/null
+  shell: python ./lstool.py list --url https://"{{ vcenter_fqdn  }}"/lookupservice/sdk  --no-check-cert --ep-type {{ type }} 2>/dev/null
   args:
     chdir: /usr/lib/vmware-lookupsvc/tools/
   register: ssl_trust_anchor
+...
