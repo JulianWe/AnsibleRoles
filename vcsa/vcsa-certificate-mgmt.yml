@@ -12,6 +12,8 @@
 
   vars_files:
     - /git/vcsa/roles/vcsa.general/vault/secrets.yml
+#    - /ccloud/ansible/vault/vmware.yml"
+#    - /ccloud/ansible/vault/ad.yml"
   
   roles:
     - roles/vcsa.certificate

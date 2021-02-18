@@ -1,17 +1,13 @@
 ---
-- name: debug site
-  debug: 
-    msg: "{{ site }}"
-
-- name: get server certificate from GitHub
-  github_files:
-    action: get_file
-    repo: cc/secrets
-    file_path: "{{ site }}/certificates/{{ item }}"
-    github_server: github.wdf.sap.corp
-    user: "{{ users['security_patching']['username'] }}"
-    token: "{{ users['security_patching']['token'] }}"
-  register: cert_files
-  loop: "{{ files }}"
-  delegate_to: 127.0.0.1
+  - name: get server certificate from GitHub
+    github_files:
+      action: get_file
+      repo: cc/secrets
+      file_path: "{{ site }}/certificates/{{ item }}"
+      github_server: github.wdf.sap.corp
+      user: "{{ users['security_patching']['username'] }}"
+      token: "{{ users['security_patching']['token'] }}"
+    register: cert_files
+    loop: "{{ files }}"
+    delegate_to: 127.0.0.1
 ...
