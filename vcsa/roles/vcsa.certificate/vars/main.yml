@@ -1,6 +1,9 @@
 ---
 # vars file for vcsa
-site: "{{ inventory_hostname.split('.')[2] | lower }}"
+vars_files:
+  - /home/ccloud/github/ccloud/ansible/vault/vmware.yml
+  - /home/ccloud/github/ccloud/ansible/vault/ad.yml
+site: vc-a-0.cc.qa-de-5.cloud.sap
 domain: "{{ inventory_hostname | adsite('fqdn') }}"
 digicert_url: https://cacerts.digicert.com/
 root_ca_file: DigiCertGlobalRootCA.crt
@@ -12,4 +15,5 @@ snapshot_name: ansible_auto_snap
 files:
   - "{{ inventory_hostname }}.pem"
   - "{{ inventory_hostname }}-key.pem"
+ansible_ssh_pass: "{{ users['vcenter']['ssh_run_password'] }}"
 ... 

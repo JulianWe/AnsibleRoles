@@ -6,12 +6,13 @@
       validate_certs: no
       headers:
         Cookie: "{{ login.set_cookie }}"
-    register: certChain
+    register: get_certChain
 
   - name: debug certChain
     debug: 
       msg: 
-        - "{{ certChain }}"
+        - "{{ get_certChain }}"
+    when: get_certChain.status == 200
           
 #  - name: PUT certificate
 #    uri:

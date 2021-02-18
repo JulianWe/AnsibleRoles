@@ -3,7 +3,6 @@
 # Author: Julian Wendland
 #
 ---
-
 - name: Change vCenter Certificates
   hosts: localhost
   connection: local
@@ -12,7 +11,7 @@
     - include: roles/vcsa.vm.snapshot/handlers/main.yml
 
   vars_files:
-    - /home/c5318182/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
+    - /git/vcsa/roles/vcsa.general/vault/secrets.yml
   
   roles:
     - roles/vcsa.certificate
