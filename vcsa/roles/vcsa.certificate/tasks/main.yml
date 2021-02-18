@@ -1,9 +1,21 @@
 ---
 # tasks file for vcsa.certificate
 - include: vmware_vcsa_cert_mgmt.yml
-- include: get_certificate_from_digicert.yml
+<<<<<<< HEAD
+- include: vmware_trustSSL.yml
+#- include: get_certificate_from_digicert.yml
 #- include: get_certificate_from_github.yml
 #- include: convert_digicert_from_crt_to_pem.yml
+=======
+- include: get_certificate_from_digicert.yml
+<<<<<<< HEAD
+#- include: get_certificate_from_github.yml
+#- include: convert_digicert_from_crt_to_pem.yml
+=======
+- include: get_certificate_from_github.yml
+- include: convert_digicert_from_crt_to_pem.yml
+>>>>>>> 6f6507711882b4c79f007bcb44bd0dd37fb0b138
+>>>>>>> 92af5538b5f97f426ca5cb57da78da335bf933b9
 #- include: vmware_lookupservice_issue.yml
-#- import_tasks: roles/vcsa.vm.snapshot/handlers/main.yml
+- import_tasks: roles/vcsa.vm.snapshot/handlers/main.yml
 ...
