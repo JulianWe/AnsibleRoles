@@ -10,9 +10,9 @@ Role Variables
 | Name           | Description                                | Mandatory | Type   |
 | -------------- | ------------------------------------------ | --------- | ------ |
 | datacenter | Datacenter Name | true | string
-| vmNameToSnap | Name der VM von der ein Snapshot gemacht werden soll | true | string
-| vc1Fqdn | FQDN from Managment vCenter | true | string
-| snapshot | Name des Snapshots | true | string
+| vm_name_to_snap | Name of the snapshot target VM  | true | string
+| vcenter_fqdn | FQDN vCenter | true | string
+| snapshot_name | Snapshot Name | true | string
 
 
 Role Structure

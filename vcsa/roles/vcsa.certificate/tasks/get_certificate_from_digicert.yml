@@ -8,5 +8,11 @@
   loop:
     - "{{ root_ca_file }}"
     - "{{ interm_ca_file }}"
+  register: certs
   delegate_to: 127.0.0.1
+
+- name: debug cert
+  debug: 
+    msg: 
+     - "{{ certs }}"
 ...

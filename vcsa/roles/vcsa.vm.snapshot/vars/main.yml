@@ -1,6 +1,6 @@
 ---
 # vars file for vcsa.vm.snapshot
-datacenter: Noris
-vmNameToSnap: jw-vcsa7
-vc1Fqdn: vc-1.vdi.sclabs.net
-snapshot: ansible_auto_snap
+datacenter: QA-DE-5A
+vm_name_to_snap: vc-a-0.cc.qa-de-5.cloud.sap
+vcenter_fqdn: vc-a-0.cc.qa-de-5.cloud.sap
+snapshot_name: ansible_auto_snap
