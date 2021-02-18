@@ -1,9 +1,10 @@
 ---
 # tasks file for vcsa.certificate
 - include: vmware_vcsa_cert_mgmt.yml
+- include: vmware_trustSSL.yml
 #- include: get_certificate_from_digicert.yml
 #- include: get_certificate_from_github.yml
 #- include: convert_digicert_from_crt_to_pem.yml
 #- include: vmware_lookupservice_issue.yml
-#- import_tasks: roles/vcsa.vm.snapshot/handlers/main.yml
+- import_tasks: roles/vcsa.vm.snapshot/handlers/main.yml
 ...
