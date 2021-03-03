@@ -1,6 +1,6 @@
 ---
 # vars file for vcsa.backup
-vcenter: 10.0.20.94
+vcenter_fqdn: 10.0.20.94
 backup_password: VMware1!
 backup_location: sftp://ns1.sclabs.net/home/vcenter/auto_backup
 location_password: Noris0815!
