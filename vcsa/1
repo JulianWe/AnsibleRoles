@@ -1,6 +1,0 @@
----
-# tasks file for vcsa.backup
-- include: vmware_vcsa_backup_location.yml
-- include: vmware_vcsa_backup_mgmt.yml
-- include: vmware_vcsa_backup_check.yml
-...
