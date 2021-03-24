@@ -7,7 +7,7 @@
 
   vars:
     - vc_username: vdi\julian
-    - vc_password: Sc.?123!
+    - vc_password: VMware1!
     - vcenter_fqdn: vc-1.vdi.sclabs.net
     - template: ansible-template
     - datacenter: Noris
