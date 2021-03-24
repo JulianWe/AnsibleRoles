@@ -1,7 +1,7 @@
 ---
   - name: Backup schedule already exists?
     uri:
-      url: "https://{{ vcenter_fqdn }}/rest/appliance/recovery/backup/schedules/auto_schedule"
+      url: "https://jw-vcsa7.vdi.sclabs.net/rest/appliance/recovery/backup/schedules/auto_schedule"
       method: GET
       validate_certs: no
       headers:
@@ -11,7 +11,7 @@
 
   - name: Set Backup schedule
     uri: 
-      url: "https://{{ vcenter_fqdn }}/rest/appliance/recovery/backup/schedules/auto_schedule"
+      url: "https://jw-vcsa7.vdi.sclabs.net/rest/appliance/recovery/backup/schedules/auto_schedule"
       method: POST
       validate_certs: no
       body_format: json

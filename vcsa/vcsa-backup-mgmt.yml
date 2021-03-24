@@ -1,18 +1,32 @@
-#
 # Role to schedule vcsa vami backup
-# Author: Julian Wendland
-#
+# Author: Julian Wendland - (C5318182)
 ---
-
-- name: Schedule vcsa backup 
+- name: Schedule VCSA backup
   hosts: localhost
   connection: local
 
-  vars_files:
-    - /home/jw/github/AnsibleRoles/vcsa/roles/vcsa.general/vault/secrets.yml
+  vars:
+    - vc_username: vdi\julian
+    - vc_password: Sc.?123!
+    - vcenter_fqdn: vc-1.vdi.sclabs.net
+    - template: ansible-template
+    - datacenter: Noris
+    - datastore: Infrastructure
+    - esxi_hostname: esxi05.sclabs.net
+    - network_portgroup: Management_e
+    - ip_address: 10.0.20.95
+    - netmask: 255.255.255.0
+    - ip_gateway: 10.0.20.253
+    - dns_server: 10.0.30.20
+    - guest_domain: vdi.sclabs.net
+    - dns_suffix: vdi.sclabs.net
+    - backup_server_hostname: backup-location
+    - db_backup_user: db_backup
+    - backup_location_password: VMware1!
+    - backup_password: VMware1!
+    - backup_location: sftp://backup-location.vdi.sclabs.net/home/db_backup/vcenter/auto_backup 
 
   roles:
     - roles/vcsa.general
     - roles/vcsa.backup
-
 ...

@@ -1,7 +1,7 @@
 # Author Julian Wendland - C5318182
 ---
   - name: vCenter Login
-    no_log: true
+    no_log: false
     uri:
       url: "https://{{ vcenter_fqdn }}/rest/com/vmware/cis/session"
       force_basic_auth: yes
